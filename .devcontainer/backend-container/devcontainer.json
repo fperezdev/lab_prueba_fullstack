@@ -4,13 +4,26 @@
   "service": "lab-prueba-backend",
   "shutdownAction": "none",
   "workspaceFolder": "/workspaces/backend",
-  "forwardPorts": [3001, 5432],
+  "forwardPorts": [3000, 5432],
   "portsAttributes": {
-    "3001": {
+    "3000": {
       "label": "Lab Prueba Backend"
     },
     "5432": {
       "label": "Postgres"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "humao.rest-client"
+      ]
     }
   }
 }

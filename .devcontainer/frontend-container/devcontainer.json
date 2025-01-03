@@ -4,10 +4,24 @@
   "service": "lab-prueba-frontend",
   "shutdownAction": "none",
   "workspaceFolder": "/workspaces/frontend",
-  "forwardPorts": [3000],
+  "forwardPorts": [3001],
   "portsAttributes": {
-    "3000": {
+    "3001": {
       "label": "Lab Prueba Frontend"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "infeng.vscode-react-typescript",
+        "bradlc.vscode-tailwindcss"
+      ]
     }
   }
 }

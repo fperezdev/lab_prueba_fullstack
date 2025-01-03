@@ -1,6 +1,6 @@
 if (typeof document !== 'undefined') {
   document.getElementById("fetchButton").addEventListener("click", () => {
-    fetch("http://localhost:3001/api") // Cambia la URL según tu backend
+    fetch("http://localhost:3000/api") // Cambia la URL según tu backend
       .then((response) => {
         console.log("responseee");
         response.text()})
