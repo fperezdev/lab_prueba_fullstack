@@ -1,0 +1,16 @@
+{
+  "name": "Lab Prueba Backend",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "lab-prueba-backend",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspaces/backend",
+  "forwardPorts": [3001, 5432],
+  "portsAttributes": {
+    "3001": {
+      "label": "Lab Prueba Backend"
+    },
+    "5432": {
+      "label": "Postgres"
+    }
+  }
+}

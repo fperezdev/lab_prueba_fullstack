@@ -1,0 +1,13 @@
+{
+  "name": "Lab Prueba Frontend",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "lab-prueba-frontend",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspaces/frontend",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Lab Prueba Frontend"
+    }
+  }
+}
