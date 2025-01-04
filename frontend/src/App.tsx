@@ -1,8 +1,13 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Pokedex from './pages/Pokedex';
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <div>
-      <h1>Pokemon Lab App qt</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Pokedex />
+    </QueryClientProvider>
   );
 }
 

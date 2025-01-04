@@ -1,16 +1,16 @@
 import express from 'express';
-import setsRouter from './routes/sets';
-import cardsRouter from './routes/cards';
+import cors from 'cors';
+import router from './routes';
 import { PORT } from './lib/vars';
 
 const app = express();
+app.use(express.json());
 
-app.use('/sets', setsRouter);
-app.use('/cards', cardsRouter);
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors());
+}
 
-app.get('/status', (_req, res) => {
-  res.json({ status: 'El servidor se ve OK' });
-});
+app.use('/api/v1', router);
 
 app.listen(PORT, () => {
   console.log(`El servidor está corriendo en el puerto ${PORT}`);

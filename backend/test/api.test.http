@@ -1,11 +1,11 @@
 ### Get all sets
-GET http://localhost:3000/sets
+GET http://localhost:3000/api/v1/sets
 Accept: application/json
 
 ### Get cards by set ID
-GET http://localhost:3000/sets/sv3pt5/cards
+GET http://localhost:3000/api/v1/sets/sv3pt5/cards
 Accept: application/json
 
 ### Get a card by ID
-GET http://localhost:3000/cards/sv3pt5-6
+GET http://localhost:3000/api/v1/cards/sv3pt5-6
 Accept: application/json
