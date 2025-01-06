@@ -3,6 +3,8 @@ import Loading from '@/components/Loading';
 import { getPokemonSets } from '@/requests/pokemon';
 import React from 'react';
 import { useQuery } from 'react-query';
+import Heading from '@/components/Heading';
+import SetList from '@/components/SetList';
 
 const Pokedex: React.FC = () => {
   const query = useQuery('pokemon-sets', async () => {
@@ -13,15 +15,9 @@ const Pokedex: React.FC = () => {
   if (query.isError) return <Error />;
 
   return (
-    <div>
-      <h1>Pokedex</h1>
-
-      {query.isError && <div>Error</div>}
-      {query.isSuccess && (
-        <ul>
-          {query.data?.map((set: any) => <li key={set.id}>{set.name}</li>)}
-        </ul>
-      )}
+    <div className="py-5">
+      <Heading />
+      <SetList setList={query.data} />
     </div>
   );
 };
