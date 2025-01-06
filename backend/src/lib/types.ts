@@ -7,6 +7,15 @@ export type PokemonCard = {
   set_id: string;
   number: string;
   rarity?: string;
+  img_url_large?: string;
+  img_url_small?: string;
+};
+
+export type PokemonCardBasic = {
+  id: string;
+  name: string;
+  number: string;
+  img_url?: string;
 };
 
 export type PokemonSet = {

@@ -10,9 +10,13 @@ import {
 } from '@/components/ui/tooltip';
 
 const SetList = ({ setList }: { setList: PokemonSet[] }) => {
+  const chosenSetId =
+    usePokemonStore((state) => state.chosenSetId) || undefined;
+
   const handleSetChange = (value: string) => {
-    usePokemonStore.setState({ chosenSetId: value });
+    if (value && value !== '') usePokemonStore.setState({ chosenSetId: value });
   };
+
   return (
     <div>
       <ToggleGroup
@@ -20,6 +24,7 @@ const SetList = ({ setList }: { setList: PokemonSet[] }) => {
         variant="outline"
         size="sm"
         className="px-10 flex flex-wrap justify-center gap-3"
+        value={chosenSetId}
         onValueChange={handleSetChange}
       >
         <TooltipProvider>
@@ -27,7 +32,10 @@ const SetList = ({ setList }: { setList: PokemonSet[] }) => {
             <Tooltip key={set.id}>
               <TooltipTrigger asChild>
                 <div>
-                  <ToggleGroupItem value={set.id} className="text-xs">
+                  <ToggleGroupItem
+                    value={set.id}
+                    className="text-xs data-[state=on]:bg-red-500 data-[state=on]:text-white"
+                  >
                     {set.name}
                   </ToggleGroupItem>
                 </div>

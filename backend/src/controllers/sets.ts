@@ -1,25 +1,31 @@
 import { Request, Response } from 'express';
 import pool from '../config/db';
-import { PokemonCard, PokemonSet } from '../lib/types';
+import { PokemonCardBasic, PokemonSet } from '../lib/types';
 
 export const getAllSets = async (_req: Request, res: Response) => {
   try {
     const result = await pool.query<PokemonSet>('SELECT * FROM public.set');
-    res.json(result.rows);
+    return res.json(result.rows);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 };
 
 export const getCardsBySetId = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const result = await pool.query<PokemonCard>(
-      'SELECT * FROM public.card WHERE set_id = $1',
+    const result = await pool.query<PokemonCardBasic>(
+      `SELECT DISTINCT ON (card.id) card.id, card.name, card.number, image.url AS img_url
+       FROM public.card card
+       INNER JOIN public.image image ON card.id = image.card_id AND image.type = 'small'
+       WHERE card.set_id = $1
+       ORDER BY card.id DESC`,
       [id],
     );
-    res.json(result.rows);
+    const cards = result.rows as PokemonCardBasic[];
+    return res.json(cards);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    console.log(err);
+    return res.status(500).json({ error: err.message });
   }
 };

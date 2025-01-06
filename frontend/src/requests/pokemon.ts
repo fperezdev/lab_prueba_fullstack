@@ -12,7 +12,7 @@ export async function getPokemonSets() {
 export async function getPokemonCardsBySet(setId: string) {
   const result = await fetch(`${basePath}/sets/${setId}/cards`);
   const cards = (await result.json()) as PokemonCard[];
-  return cards.sort((a: PokemonCard, b: PokemonCard) =>
-    a.id.localeCompare(b.id),
+  return cards.sort(
+    (a: PokemonCard, b: PokemonCard) => parseInt(a.number) - parseInt(b.number),
   );
 }
