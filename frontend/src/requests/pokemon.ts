@@ -16,3 +16,9 @@ export async function getPokemonCardsBySet(setId: string) {
     (a: PokemonCard, b: PokemonCard) => parseInt(a.number) - parseInt(b.number),
   );
 }
+
+export async function getPokemonCard(cardId: string) {
+  const result = await fetch(`${basePath}/cards/${cardId}`);
+  const card = (await result.json()) as PokemonCard;
+  return card;
+}
