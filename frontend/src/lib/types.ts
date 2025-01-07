@@ -9,6 +9,7 @@ export type PokemonCard = {
   rarity?: string;
   img_url_large?: string;
   img_url_small?: string;
+  markets?: { name: string; url: string }[];
 };
 
 export type PokemonCardBasic = {

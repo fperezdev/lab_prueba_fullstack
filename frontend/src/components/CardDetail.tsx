@@ -82,6 +82,25 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
                   {cardQuery.data?.rarity || 'NA'}
                 </span>
               </div>
+              <div className="flex">
+                <span className="w-48">Markets</span>
+                <div className="flex flex-col">
+                  {cardQuery.data?.markets?.length === 0 ? (
+                    <span className="text-gray-600">NA</span>
+                  ) : (
+                    cardQuery.data?.markets?.map((market) => (
+                      <a
+                        key={market.name}
+                        href={market.url}
+                        target="_blank"
+                        className="text-blue-600 hover:text-blue-800"
+                      >
+                        {market.name}
+                      </a>
+                    ))
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         )}
