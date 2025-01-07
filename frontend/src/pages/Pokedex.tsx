@@ -22,14 +22,19 @@ const Pokedex: React.FC = () => {
     { refetchInterval: 30 * 60 * 1000 },
   );
 
-  if (setQuery.isLoading) return <Loading />;
-  if (setQuery.isError) return <Error />;
-
   return (
-    <div className="py-5">
+    <div className="pb-5">
       <Heading />
-      <SetList setList={setQuery.data || []} />
-      <CardList />
+      {setQuery.isError ? (
+        <Error />
+      ) : setQuery.isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <SetList setList={setQuery.data || []} />
+          <CardList />
+        </>
+      )}
     </div>
   );
 };
