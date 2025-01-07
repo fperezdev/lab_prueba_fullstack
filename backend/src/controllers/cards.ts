@@ -8,9 +8,9 @@ export const getCardById = async (req: Request, res: Response) => {
     const result = await pool.query(
       `SELECT
           card.*,
-          image_large.url as img_url_large,
-          image_small.url as img_url_small,
-          ARRAY_AGG(DISTINCT (market.market || ';url:' || market.url)) as markets
+          image_large.url img_url_large,
+          image_small.url img_url_small,
+          ARRAY_AGG(DISTINCT (market.market || ';url:' || market.url)) markets
        FROM public.card card
        INNER JOIN public.image image_large
           ON card.id = image_large.card_id AND image_large.type = 'large'
@@ -38,6 +38,7 @@ export const getCardById = async (req: Request, res: Response) => {
 
     return res.json(card);
   } catch (err: any) {
+    console.error(err);
     return res.status(500).json({ error: err.message });
   }
 };
