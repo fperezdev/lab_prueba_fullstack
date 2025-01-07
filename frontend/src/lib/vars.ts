@@ -1,1 +1,1 @@
-export const basePath = 'http://localhost:3000/api/v1';
+export const basePath = import.meta.env.VITE_API_URL;
