@@ -8,6 +8,7 @@ import SetList from '@/components/SetList';
 import CardList from '@/components/CardList';
 import { PokemonSet } from '@/lib/types';
 import { usePokemonStore } from '@/stores/pokemonStore';
+import Filter from '@/components/Filter';
 
 const Pokedex: React.FC = () => {
   const setQuery = useQuery<PokemonSet[]>(
@@ -19,7 +20,7 @@ const Pokedex: React.FC = () => {
 
       return result;
     },
-    { refetchInterval: 30 * 60 * 1000 },
+    { staleTime: 30 * 60 * 1000 },
   );
 
   return (
@@ -32,6 +33,7 @@ const Pokedex: React.FC = () => {
       ) : (
         <>
           <SetList setList={setQuery.data || []} />
+          <Filter />
           <CardList />
         </>
       )}

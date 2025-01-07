@@ -1,4 +1,9 @@
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { PokemonCard } from '@/lib/types';
 import { getPokemonCard } from '@/requests/pokemon';
 import { usePokemonStore } from '@/stores/pokemonStore';
@@ -21,7 +26,9 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
 
   return (
     <Dialog open={cardId !== null} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-max">
+      <DialogContent className="pt-0 max-w-max">
+        <DialogTitle></DialogTitle>
+        <DialogDescription></DialogDescription>
         {cardQuery.isError ? (
           <div>{'Error :('}</div>
         ) : cardQuery.isLoading ? (
@@ -30,7 +37,7 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
           </div>
         ) : (
           <div className="px-7 flex gap-10">
-            <div className="h-[90vh] aspect-[0.717] relative">
+            <div className="h-[85vh] aspect-[0.717] relative">
               <Skeleton className="h-full w-full absolute" />
               <img
                 src={cardQuery.data?.img_url_large}

@@ -1,4 +1,4 @@
-import { PokemonCard, PokemonSet } from '@/lib/types';
+import { PokemonCard, PokemonCardBasic, PokemonSet } from '@/lib/types';
 import { basePath } from '@/lib/vars';
 
 export async function getPokemonSets() {
@@ -11,9 +11,10 @@ export async function getPokemonSets() {
 
 export async function getPokemonCardsBySet(setId: string) {
   const result = await fetch(`${basePath}/sets/${setId}/cards`);
-  const cards = (await result.json()) as PokemonCard[];
+  const cards = (await result.json()) as PokemonCardBasic[];
   return cards.sort(
-    (a: PokemonCard, b: PokemonCard) => parseInt(a.number) - parseInt(b.number),
+    (a: PokemonCardBasic, b: PokemonCardBasic) =>
+      parseInt(a.number) - parseInt(b.number),
   );
 }
 

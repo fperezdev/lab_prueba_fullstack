@@ -16,6 +16,8 @@ export type PokemonCardBasic = {
   id: string;
   name: string;
   number: string;
+  types?: string[];
+  rarity?: string;
   img_url?: string;
 };
 
