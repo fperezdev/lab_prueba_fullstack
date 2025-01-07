@@ -10,7 +10,7 @@ export const getCardById = async (req: Request, res: Response) => {
           card.*,
           image_large.url as img_url_large,
           image_small.url as img_url_small,
-          ARRAY_AGG(market.market || ';url:' || market.url) as markets
+          ARRAY_AGG(DISTINCT (market.market || ';url:' || market.url)) as markets
        FROM public.card card
        INNER JOIN public.image image_large
           ON card.id = image_large.card_id AND image_large.type = 'large'
