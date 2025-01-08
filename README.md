@@ -8,7 +8,7 @@ El contexto de creación de esta aplicación es resolver una prueba elaborada po
 
 - **.devcontainer**: Contiene archivos de configuración para contenedores de desarrollo.
 - **frontend**: Contiene la aplicación frontend de React.
-- **backend**: Contiene la aplicación backend de Express.
+- **backend**: Contiene la aplicación backend de Express. Se utilizó Swagger para crear la documentación de la API. 
 - **resources**: Contiene el dump para inicializar la base de datos.
 
 ## Comenzando
@@ -51,8 +51,14 @@ El contexto de creación de esta aplicación es resolver una prueba elaborada po
    - Frontend: [http://localhost:3001](http://localhost:3001)
    - Backend: [http://localhost:3000](http://localhost:3000)
 
-## Acceder a la aplicación en producción
+## Producción
     - La aplicación está productiva y se puede acceder visitando https://pokelab.fperezdev.com/
+    - La arquitectura consta de 4 instancias desplegadas en Railway:
+        - Base de datos PostgreSQL desplegada con archivo Dockerfile, se decidió así por facilidad, no es recomendado
+        - Backend (API) desplegada con archivo Dockerfile
+        - Frontend desplegada con archivo Dockerfile utilizando Nginx
+        - Reverse proxy para consultar al Frontend y Backend de la aplicación desde la misma url y así no necesitar especificar la url del Backend desde el Frontend.
+    - Se puede ver la documentación de la API en https://pokelab.fperezdev.com/api/v1/api-docs
 
 ## Personalización
 
@@ -60,9 +66,11 @@ El contexto de creación de esta aplicación es resolver una prueba elaborada po
 
 El proyecto incluye extensiones recomendadas de VS Code para una mejor experiencia de desarrollo. Estas extensiones están listadas en los archivos `devcontainer.json`.
 
-### Formateo y Linter
-
-El proyecto está configurado para formatear el código al guardar e incluye ESLint y Prettier para linting y formateo.
+## Oportunidades de mejora
+Algunos features que podrian mejorar la experiencia de usuario y el rendimiento de la aplicación no fueron desarrollados porque supondrían demorar el proyecto, tales como:
+    - Agregar paginación
+    - Agregar opción para ordenar por nombre, tipo o rareza
+    - Poder hacer zoom a la carta seleccionada
 
 ## Contribuidores
 
