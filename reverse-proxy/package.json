@@ -1,0 +1,17 @@
+{
+  "name": "reverse-proxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "fperez",
+  "license": "ISC",
+  "description": "Reverse proxy to access frontend and backend from the same URL",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.0"
+  }
+}

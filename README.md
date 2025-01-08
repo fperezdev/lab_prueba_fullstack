@@ -30,7 +30,7 @@ El contexto de creación de esta aplicación es resolver una prueba elaborada po
     - Conseguir archivo `.env` con fperez y pegarlo en la carpeta raíz del proyecto, debe contener las siguientes variables:
     ```env
     NODE_ENV=development
-    ORIGIN_URL=http://localhost:3001
+    FRONTEND_URL=http://localhost:3001
     POSTGRES_DB=${POSTGRES_DB}
     POSTGRES_HOST=${POSTGRES_HOST}
     POSTGRES_USER=${POSTGRES_USER}

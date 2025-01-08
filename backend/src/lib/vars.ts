@@ -4,7 +4,7 @@ dotenv.config();
 
 export const NODE_ENV = process.env.NODE_ENV;
 export const PORT = process.env.PORT || 3000;
-export const ORIGIN_URL = process.env.ORIGIN_URL;
+export const FRONTEND_URL = process.env.FRONTEND_URL;
 
 export const POSTGRES_USER = process.env.POSTGRES_USER;
 export const POSTGRES_HOST = process.env.POSTGRES_HOST;
