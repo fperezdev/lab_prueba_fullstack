@@ -26,36 +26,36 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
 
   return (
     <Dialog open={cardId !== null} onOpenChange={handleOpenChange}>
-      <DialogContent className="pt-0 max-w-max">
-        <DialogTitle></DialogTitle>
-        <DialogDescription></DialogDescription>
+      <DialogContent className="px-0 pt-14 max-w-[100vw] sm:max-w-max max-h-[100vh] flex justify-center overflow-y-auto">
+        <DialogTitle className="hidden"></DialogTitle>
+        <DialogDescription className="hidden"></DialogDescription>
         {cardQuery.isError ? (
           <div>{'Error :('}</div>
         ) : cardQuery.isLoading ? (
-          <div className="w-96 h-96 flex justify-center items-center">
+          <div className="w-60 h-96 flex justify-center items-center sm:w-96">
             <img src={pikaLoading} alt="Loading" className="h-44" />
           </div>
         ) : (
-          <div className="px-7 flex gap-10">
-            <div className="h-[85vh] aspect-[0.717] relative">
-              <Skeleton className="h-full w-full absolute" />
+          <div className="px-7 flex flex-col gap-10 sm:flex-row">
+            <div className="h-[60vh] aspect-[0.717] relative sm:h-[85vh]">
+              <Skeleton className="h-full aspect-[0.717] absolute" />
               <img
                 src={cardQuery.data?.img_url_large}
                 alt={cardQuery.data?.name}
                 className="h-full"
               />
             </div>
-            <div className="max-w-96 py-7 flex flex-col gap-10">
+            <div className="max-w-96 py-7 flex flex-col gap-5 sm:gap-10">
               <span className="text-xl">
                 #{cardQuery.data?.number} {cardQuery.data?.name}
               </span>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <span className="w-48">Supertipo</span>
                 <span className="text-gray-600">
                   {cardQuery.data?.supertype || 'NA'}
                 </span>
               </div>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <span className="w-48">Tipos</span>
                 <div className="flex flex-col">
                   {cardQuery.data?.types?.length === 0 ? (
@@ -69,7 +69,7 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
                   )}
                 </div>
               </div>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <span className="w-48">Subtipos</span>
                 <div className="flex flex-col">
                   {cardQuery.data?.subtypes?.length === 0 ? (
@@ -83,13 +83,13 @@ const CardDetail = ({ cardId }: { cardId: string | null }) => {
                   )}
                 </div>
               </div>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <span className="w-48">Rareza</span>
                 <span className="text-gray-600">
                   {cardQuery.data?.rarity || 'NA'}
                 </span>
               </div>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <span className="w-48">Markets</span>
                 <div className="flex flex-col">
                   {cardQuery.data?.markets?.length === 0 ? (

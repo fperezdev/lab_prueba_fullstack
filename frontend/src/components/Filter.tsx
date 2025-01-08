@@ -10,11 +10,11 @@ const Filter: React.FC = () => {
   };
 
   return (
-    <div className="mt-7 px-10 flex justify-center">
+    <div className="mt-7 px-0 flex justify-center sm:px-10">
       <Input
         type="text"
         placeholder="Buscar por nombre, tipo o rareza"
-        className="w-[30rem] !text-xs"
+        className="w-80 !text-xs overflow-hidden text-ellipsis sm:w-[30rem]"
         onChange={handleChange}
       />
     </div>

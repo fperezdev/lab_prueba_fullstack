@@ -23,7 +23,7 @@ const SetList = ({ setList }: { setList: PokemonSet[] }) => {
         type="single"
         variant="outline"
         size="sm"
-        className="px-10 flex flex-wrap justify-center gap-3"
+        className="px-0 flex flex-col flex-wrap justify-center gap-3 sm:px-10 sm:flex-row"
         value={chosenSetId}
         onValueChange={handleSetChange}
       >
